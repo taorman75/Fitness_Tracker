@@ -7,7 +7,7 @@ const app = express();
 
 app.use(logger("dev"));
 
-mongoose.connect('mongodb://localhost/workout', {
+mongoose.connect('mongodb://localhost/workouts', {
   useNewUrlParser: true,
   useFindAndModify: false
 })
@@ -17,10 +17,10 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-const databaseUrl = "workout"; // name the db
-const collections = ["exercises"]; // name the collections
+// const databaseUrl = "workout"; // name the db
+// const collections = ["collection"]; // name the collections
 
-const db = mongojs(databaseUrl, collections);
+//const db = mongojs(databaseUrl, collections);
 
 // routes
 app.use(require("./routes/api.js"));
