@@ -48,7 +48,7 @@ router.put("/api/workouts/:id", ({ body, params }, res) => {
 //couple of get routes
 
 router.get("/api/workouts/range", (req, res) => {
-    Workout.find({}).limit(5)
+    Workout.find({}).limit(7)
       .then(dbWorkouts => {
         console.log(dbWorkouts)
         res.json(dbWorkouts);
@@ -85,7 +85,7 @@ router.delete("/api/workouts", ({ body }, res) => {
         res.json(err);
       });
   });
-  
+
 /*router.delete("/api/workouts/:id", (req, res) => {
     Workout.remove({ _id: mongojs.ObjectId(req.params.id)
     }).then(console.log("workout removed"))
