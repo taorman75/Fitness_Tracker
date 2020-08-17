@@ -17,10 +17,12 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-// const databaseUrl = "workout"; // name the db
-// const collections = ["collection"]; // name the collections
+//if deployed, use the deployed database. otherwise use the local mongoHeadlines database
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
-//const db = mongojs(databaseUrl, collections);
+//connect to the Mongo DB
+mongoose.connect(MONGODB_URI);
+
 
 // routes
 app.use(require("./routes/api.js"));
